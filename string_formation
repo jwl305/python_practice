@@ -1,0 +1,86 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""
+import math
+
+datainput=open("input.txt",'r')
+def Octal(number):
+    output=""
+    biggerthaneight=True
+    while biggerthaneight:
+        new= number//8
+        remainder=str(number%8)
+        number=new
+        if new >=8:
+            output=str(remainder)+str(output)
+        if new <8:
+            biggerthaneight=False
+            output=str(remainder)+str(output)
+            if (new >0):
+                output = str(new)+str(output)
+        
+    return(output)
+def Hexa(number):
+    output=""
+    biggerthaneight=True
+    while biggerthaneight:
+        new= number//16
+        remainder=number%16
+        number=new
+       # print("new is,", new)
+       # print("remainder is,",remainder)
+        #print("number is,",number)
+        if new >=16:
+            output=str(new)+str(output)
+        if (new <16):
+            biggerthaneight=False
+            if remainder<10:
+                output=str(remainder)+str(output)
+            if (remainder ==10):
+                output = str('A')+str(output)
+            if (remainder ==11):
+                output = str('B')+str(output)
+            if (remainder ==12):
+                output = str('C')+str(output)
+            if (remainder ==13):
+                output = str('D')+str(output)
+            if (remainder ==14):
+                output = str('E')+str(output)
+            if (remainder ==15):
+                output = str('F')+str(output)
+            if new>0:
+                    output = str(new)+str(output)
+            
+         
+    return(output)
+def Bino(number):
+    output=""
+    biggerthaneight=True
+    while biggerthaneight:
+        new=number//2
+        remainder=number%2
+        number=new
+        if new >=2:
+            output=str(remainder)+str(output)
+        if new <2:
+            biggerthaneight=False
+            output=str(remainder)+str(output)
+            if (new>0):
+                output = str(new)+str(output)
+    return(output)
+def printformatted(n):
+        pad=len(Bino(n))
+        for num in range(n):
+            print(str(num+1).rjust(pad),Octal(num+1).rjust(pad),Hexa(num+1).rjust(pad),Bino(num+1).rjust(pad),sep=" ")
+            
+if __name__ == '__main__':
+    n = int(datainput.readline())
+    printformatted(n)
+        
+
+
+    
+        

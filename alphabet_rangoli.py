@@ -21,7 +21,6 @@ def print_rangoli(n):
     letters=[]
     alphabet=string.ascii_lowercase
     new=pyramid(alphabet,n)
-    print(new)
     for each in range(n):
         print(new[n-each-1].center(size,"-"))    
     for each in range(n-1):
